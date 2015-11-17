@@ -1,29 +1,11 @@
 doctype html
 html(lang="en")
-  head
-    title Landing Page
+
+  include ./partials/_head.jade
+
   body#nav-content
 
-    nav#mainNav.navbar
-      .container-fluid
-      // Brand and toggle get grouped for better mobile experience
-      .navbar-header
-        button.navbar-toggle(type="button")
-          span.sr-only Toggle navigation
-          | &nbsp;
-          span.icon-bar
-          | &nbsp;
-          span.icon-bar
-          | &nbsp;
-          span.icon-bar
-        | &nbsp;
-        a.navbar-brand.page-scroll(href='/') FitLog.io
-        // Collect the nav links, forms, and other content
-        #bs-example-navbar-collapse-1.collapse.navbar
-          ul.nav.navbar
-            li
-              a(href='/blog') Blog
-            li
-              a.page-scroll(href='#about') About
+    include ./partials/_nav.jade
+    block content
 
-            block content
+    script(src='/static/js/stuff.js')
