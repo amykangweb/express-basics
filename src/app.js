@@ -7,6 +7,7 @@ var app = express();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/templates');
+app.set('view options', {layout:false});
 
 // debugger;
 
@@ -20,8 +21,8 @@ app.get('/blog/:title?', function(req, res){
     res.status(503);
     res.send("This page is under construction");
   } else {
-    var post = posts[title];
-    res.send(post);
+    var post = posts[title] || {};
+    res.render('post', { post: post });
   }
 });
 
